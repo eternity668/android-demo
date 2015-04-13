@@ -14,12 +14,14 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.MediaController;
 
+import com.pispower.BuildConfig;
 import com.pispower.R;
 import com.pispower.video.VideoView;
 
 public class PlayActivity extends Activity implements
 		MediaPlayer.OnErrorListener, MediaPlayer.OnPreparedListener {
 
+    private static final String TAG=PlayActivity.class.getName();
 	private VideoView videoView;
 	private ProgressDialog progressDialog;
 	private Resources resources;
@@ -27,6 +29,12 @@ public class PlayActivity extends Activity implements
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		
+		if (BuildConfig.DEBUG)
+		{
+		    Log.d(TAG, "onPause function is called");
+		}
+
 		resources = getResources();
 		// 创建进度对话框
 		progressDialog = ProgressDialog.show(this,
@@ -106,5 +114,106 @@ public class PlayActivity extends Activity implements
 		// 开始播放视频
 		videoView.start();
 	}
+	
+	  @Override
+	    protected void onRestoreInstanceState(Bundle savedInstanceState)
+	    {
+		super.onRestoreInstanceState(savedInstanceState);
+		if (BuildConfig.DEBUG)
+		{
+		    Log.d(TAG, "onRestoreInstanceState function is called");
+		}
 
+	    }
+
+	    @Override
+	    protected void onPostCreate(Bundle savedInstanceState)
+	    {
+		super.onPostCreate(savedInstanceState);
+		if (BuildConfig.DEBUG)
+		{
+		    Log.d(TAG, "onPostCreate function is called");
+		}
+	    }
+
+	    @Override
+	    protected void onStart()
+	    {
+		super.onStart();
+		if (BuildConfig.DEBUG)
+		{
+		    Log.d(TAG, "onStart function is called");
+		}
+	    }
+
+	    @Override
+	    protected void onRestart()
+	    {
+		super.onRestart();
+		if (BuildConfig.DEBUG)
+		{
+		    Log.d(TAG, "onRestart function is called");
+		}
+	    }
+
+	    @Override
+	    protected void onResume()
+	    {
+		super.onResume();
+		if (BuildConfig.DEBUG)
+		{
+		    Log.d(TAG, "onResume function is called");
+		}
+	    }
+
+	    @Override
+	    protected void onPostResume()
+	    {
+		super.onPostResume();
+		if (BuildConfig.DEBUG)
+		{
+		    Log.d(TAG, "onPostResume function is called");
+		}
+	    }
+
+	    @Override
+	    protected void onSaveInstanceState(Bundle outState)
+	    {
+		super.onSaveInstanceState(outState);
+		if (BuildConfig.DEBUG)
+		{
+		    Log.d(TAG, "onSaveInstanceState function is called");
+		}
+	    }
+
+	    @Override
+	    protected void onPause()
+	    {
+		super.onPause();
+		if (BuildConfig.DEBUG)
+		{
+		    Log.d(TAG, "onPause function is called");
+		}
+	    }
+
+	    @Override
+	    protected void onStop()
+	    {
+		super.onStop();
+		if (BuildConfig.DEBUG)
+		{
+		    Log.d(TAG, "onStop function is called");
+		}
+	    }
+
+	    @Override
+	    protected void onDestroy()
+	    {
+		super.onDestroy();
+		if (BuildConfig.DEBUG)
+		{
+		    Log.d(TAG, "onDestroy function is called");
+		}
+	    }
+	
 }
